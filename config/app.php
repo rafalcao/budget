@@ -77,14 +77,11 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pt',
 
     'locales' => [
-        'en' => 'English',
-        'nl' => 'Dutch',
-        'dk' => 'Danish',
-        'de' => 'German',
-        'fr' => 'French'
+        'pt' => 'Português',
+        'en' => 'English'
     ],
 
     /*

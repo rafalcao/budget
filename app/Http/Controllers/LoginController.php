@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller {
-    
+
     public function index() {
         return view('login');
     }
@@ -29,7 +29,7 @@ class LoginController extends Controller {
                 ->route('login')
                 ->with([
                     'alert_type' => 'danger',
-                    'alert_message' => 'Failed to login'
+                    'alert_message' => __('messages.login_failed')
                 ]);
         }
     }

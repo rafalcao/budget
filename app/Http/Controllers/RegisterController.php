@@ -35,6 +35,7 @@ class RegisterController extends Controller {
         $user->password = Hash::make($request->password);
         $user->verification_token = str_random(100);
         $user->currency_id = $request->currency;
+        $user->language = 'pt';
 
         $user->save();
 
@@ -53,7 +54,7 @@ class RegisterController extends Controller {
             ->route('login')
             ->with([
                 'alert_type' => 'success',
-                'alert_message' => 'You\'ve succesfully registered, check your e-mail to verify'
+                'alert_message' => __('messages.login_success')
             ]);
     }
 }
