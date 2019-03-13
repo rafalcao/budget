@@ -7,7 +7,7 @@
         <h2>Reports</h2>
         <div class="box mt-3">
             <div class="box__section">
-                <a href="/reports/weekly-report-2018">Weekly Balance 2018</a>
+                <a href="/reports/weekly-report-2018">Saldo Semanal 2019</a>
             </div>
         </div>
     </div>

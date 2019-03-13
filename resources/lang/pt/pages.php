@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'settings' => 'Definições',
+    'settings' => 'Preferências',
     'log_out' => 'Sair'
 ];

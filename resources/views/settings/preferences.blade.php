@@ -20,7 +20,7 @@
                 <label>{{ __('fields.theme') }}</label>
                 <select name="theme">
                     <option value="light" {{ Auth::user()->theme == 'light' ? 'selected' : '' }}>Light</option>
-                    <option value="dark" {{ Auth::user()->theme == 'dark' ? 'selected' : '' }}>Dark (Experimental)</option>
+                    <option value="dark" {{ Auth::user()->theme == 'dark' ? 'selected' : '' }}>Dark</option>
                 </select>
                 @include('partials.validation_error', ['payload' => 'theme'])
             </div>

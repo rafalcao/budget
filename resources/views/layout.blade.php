@@ -47,7 +47,7 @@
                                 <a href="/tags" {!! (Request::path() == 'tags') ? 'class="active"' : '' !!}><i class="far fa-tag fa-sm color-red"></i> <span class="hidden ml-05">{{ __('models.tags') }}</span></a>
                             </li>
                             <li>
-                                <a href="/reports" {!! (Request::path() == 'reports') ? 'class="active"' : '' !!}><i class="far fa-chart-line fa-sm color-blue"></i> <span class="hidden ml-05">Reports</span></a>
+                                <a href="/reports" {!! (Request::path() == 'reports') ? 'class="active"' : '' !!}><i class="far fa-chart-line fa-sm color-blue"></i> <span class="hidden ml-05">{{ __('models.reports') }}</span></a>
                             </li>
                         </ul>
                         <ul class="navigation__menu">
@@ -107,7 +107,7 @@
             @yield('body')
             @if (auth()->check())
                 <div class="text-center mb-3">
-                    <a href="/ideas/create" style="font-size: 14px;">Know how to make this app better?</a>
+                    <a href="/ideas/create" style="font-size: 14px;">{{ __('general.new_idea') }}</a>
                 </div>
             @endif
         </div>

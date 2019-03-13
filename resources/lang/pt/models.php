@@ -17,5 +17,7 @@ return [
     'spending' => 'Gasto',
 
     'imports' => 'Importações',
-    'import' => 'Importar'
+    'import' => 'Importar',
+
+    'reports' => 'Relatórios'
 ];

@@ -19,5 +19,9 @@ return [
     'account' => 'Account',
     'preferences' => 'Preferences',
 
-    'empty_state' => 'There aren\'t any :resource yet'
+    'empty_state' => 'There aren\'t any :resource yet',
+
+    'most_expensive' => 'Most Expensive',
+    'daily_balance' => 'Daily Balance',
+    'new_idea' => 'Know how to make this app better?',
 ];

@@ -19,5 +19,8 @@ return [
     'account' => 'Conta',
     'preferences' => 'Preferências',
 
-    'empty_state' => 'Não há qualquer recurso ainda'
+    'empty_state' => 'Nenhuma',
+    'most_expensive' => 'Mais Caro',
+    'daily_balance' => 'Saldo Diário',
+    'new_idea' => 'Tem alguma ideia para melhorar o aplicativo?',
 ];
