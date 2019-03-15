@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \Rap2hpoutre\CreateUser\Command::class,
     ];
 
     /**

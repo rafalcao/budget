@@ -9,17 +9,31 @@ use App\Mail\VerifyRegistration;
 use App\Currency;
 use App\User;
 use App\Space;
+use App\Tag;
 use Hash;
 use Mail;
 
-class RegisterController extends Controller {
-    public function index() {
+class RegisterController extends Controller
+{
+    /** @var string  */
+    const ROLE = 'admin';
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
+    {
         $currencies = Currency::all();
 
         return view('register', compact('currencies'));
     }
 
-    public function store(Request $request) {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request)
+    {
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
@@ -27,6 +41,32 @@ class RegisterController extends Controller {
             'currency' => 'required|exists:currencies,id'
         ]);
 
+        $user     = $this->createUser($request);
+        $space    = $this->createSpace($request->name);
+
+        $user->spaces()->attach(
+            $space->id,
+            ['role' => self::ROLE]
+        );
+
+        $this->createDefaultTags($space->id);
+
+        $this->sendMail($user);
+
+        return redirect()
+            ->route('login')
+            ->with([
+                'alert_type' => 'success',
+                'alert_message' => __('messages.login_success')
+            ]);
+    }
+
+    /**
+     * @param $request
+     * @return User
+     */
+    protected function createUser($request)
+    {
         // User
         $user = new User;
 
@@ -39,22 +79,38 @@ class RegisterController extends Controller {
 
         $user->save();
 
+        return $user;
+    }
+
+    /**
+     * @param $name
+     * @return Space
+     */
+    protected function createSpace($name)
+    {
         // Space
         $space = new Space;
-
-        $space->name = $user->name . '\'s Space';
-
+        $space->name = $name . '\'s Space';
         $space->save();
 
-        $user->spaces()->attach($space->id, ['role' => 'admin']);
+        return $space;
+    }
 
-        Mail::to($user->email)->queue(new VerifyRegistration($user));
+    /**
+     * @param $user
+     * @return mixed
+     */
+    protected function sendMail($user)
+    {
+        return Mail::to($user->email)->queue(new VerifyRegistration($user));
+    }
 
-        return redirect()
-            ->route('login')
-            ->with([
-                'alert_type' => 'success',
-                'alert_message' => __('messages.login_success')
-            ]);
+    /**
+     * @param $spaceId
+     * @return mixed
+     */
+    protected function createDefaultTags($spaceId)
+    {
+        return Tag::createDefault($spaceId);
     }
 }
