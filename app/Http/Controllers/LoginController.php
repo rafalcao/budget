@@ -15,7 +15,7 @@ class LoginController extends Controller {
         if (Auth::attempt([
             'email' => $request->input('email'),
             'password' => $request->input('password'),
-            //'verification_token' => null
+            'verification_token' => null
         ])) {
             $user = Auth::user();
 
