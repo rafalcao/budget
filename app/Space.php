@@ -32,6 +32,10 @@ class Space extends Model {
         return $this->hasMany(Recurring::class);
     }
 
+    public function creditCards() {
+        return $this->hasMany(CreditCards::class);
+    }
+
     public function imports() {
         return $this->hasMany(Import::class);
     }

@@ -38,23 +38,62 @@
                     <div class="wrapper">
                         <ul class="navigation__menu">
                             <li>
-                                <a href="/dashboard" {!! (Request::path() == 'dashboard') ? 'class="active"' : '' !!}><i class="far fa-home fa-sm color-blue"></i> <span class="hidden ml-05">{{ __('general.dashboard') }}</span></a>
+                                <dropdown>
+
+                                    <span slot="button">
+                                        <img src="{{ Auth::user()->avatar }}" class="avatar mr-05" /> <i class="fas fa-caret-down fa-sm"></i>
+                                    </span>
+                                    <ul slot="menu" v-cloak>
+                                        <li>
+                                            <a href="/tags">{{ __('models.tags') }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="/credit_cards">{{ __('models.cards') }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="/settings">{{ __('pages.settings') }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="/logout">{{ __('pages.log_out') }}</a>
+                                        </li>
+                                    </ul>
+                                </dropdown>
+
                             </li>
-                            <li>
-                                <a href="/recurrings" {!! (Request::path() == 'recurrings') ? 'class="active"' : '' !!}><i class="far fa-recycle fa-sm color-green"></i> <span class="hidden ml-05">{{ __('models.recurrings') }}</span></a>
-                            </li>
-                            <li>
-                                <a href="/tags" {!! (Request::path() == 'tags') ? 'class="active"' : '' !!}><i class="far fa-tag fa-sm color-red"></i> <span class="hidden ml-05">{{ __('models.tags') }}</span></a>
-                            </li>
-                            <li>
-                                <a href="/reports" {!! (Request::path() == 'reports') ? 'class="active"' : '' !!}><i class="far fa-chart-line fa-sm color-blue"></i> <span class="hidden ml-05">{{ __('models.reports') }}</span></a>
-                            </li>
+                            <?php /* {{ session('space')->name }} */ ?>
                         </ul>
                         <ul class="navigation__menu">
                             <li>
+                                <a href="/dashboard" {!! (Request::path() == 'dashboard') ? 'class="active"' : '' !!}><i class="fas fa-chart-line color-green"></i> <span class="hidden ml-05">{{ __('models.dashboard') }}</span></a>
+                            </li>
+                            <li>
+                                <a href="/balance" {!! (Request::path() == 'balance') ? 'class="active"' : '' !!}><i class="fas fa-balance-scale color-green"></i> <span class="hidden ml-05">{{ __('models.balance') }}</span></a>
+                            </li>
+                            <li>
+                                <a href="/releases" {!! (Request::path() == 'releases') ? 'class="active"' : '' !!}><i class="far fa-money-bill-alt color-green"></i> <span class="hidden ml-05">{{ __('models.releases') }}</span></a>
+                            </li>
+                            <li>
+                                <a href="/debts" {!! (Request::path() == 'debts') ? 'class="active"' : '' !!}><i class="fab fa-gripfire color-red"></i> <span class="hidden ml-05">{{ __('models.debts') }}</span></a>
+                            </li>
+                            <li>
+                                <a href="/variable" {!! (Request::path() == 'variable') ? 'class="active"' : '' !!}><i class="fas fa-shopping-bag color-red"></i> <span class="hidden ml-05">{{ __('models.variable') }}</span></a>
+                            </li>
+                            <li>
+                                <a href="/recurrings" {!! (Request::path() == 'recurrings') ? 'class="active"' : '' !!}><i class="fa fa-undo fa-sm color-blue"></i> <span class="hidden ml-05">{{ __('models.recurrings') }}</span></a>
+                            </li>
+                            <li>
+                                <a href="/investments" {!! (Request::path() == 'investments') ? 'class="active"' : '' !!}><i class="fas fa-piggy-bank color-green"></i> <span class="hidden ml-05">{{ 'Investimentos' }}</span></a>
+                            </li>
+                            <li>
+                                <a href="/budget" {!! (Request::path() == 'budget') ? 'class="active"' : '' !!}><i class="fas fa-plane color-blue"></i> <span class="hidden ml-05">{{ __('models.budget') }}</span></a>
+                            </li>
+                            <?php /* <li>
+                                <a href="/reports" {!! (Request::path() == 'reports') ? 'class="active"' : '' !!}><i class="far fa-chart-line fa-sm color-blue"></i> <span class="hidden ml-05">{{ __('models.reports') }}</span></a>
+                            </li> */ ?>
+                            <li>
                                 <dropdown>
                                     <span slot="button">
-                                        <i class="far fa-plus mr-05"></i> <i class="fas fa-caret-down fa-sm"></i>
+                                        <i class="fab fa-nintendo-switch color-black mr-05"></i> <i class="fas fa-caret-down fa-sm"></i>
                                     </span>
                                     <ul slot="menu" v-cloak>
                                         <li>
@@ -82,24 +121,7 @@
                                     </dropdown>
                                 </li>
                             @endif
-                            <li>
-                                <dropdown>
-                                    <span slot="button">
-                                        <img src="{{ Auth::user()->avatar }}" class="avatar mr-05" /> <i class="fas fa-caret-down fa-sm"></i>
-                                    </span>
-                                    <ul slot="menu" v-cloak>
-                                        <li>
-                                            <a href="/imports">{{ __('models.imports') }}</a>
-                                        </li>
-                                        <li>
-                                            <a href="/settings">{{ __('pages.settings') }}</a>
-                                        </li>
-                                        <li>
-                                            <a href="/logout">{{ __('pages.log_out') }}</a>
-                                        </li>
-                                    </ul>
-                                </dropdown>
-                            </li>
+
                         </ul>
                     </div>
                 </div>

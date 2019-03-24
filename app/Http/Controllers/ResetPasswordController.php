@@ -22,7 +22,9 @@ class ResetPasswordController extends Controller {
             'password' => 'required_without:email|confirmed'
         ]);
 
-        if ($email = $request->input('email') && !$request->has('token')) {
+        $email = $request->input('email');
+
+        if ($email && !$request->has('token')) {
             $existingUser = User::where('email', $email)->first();
 
             if ($existingUser) {
@@ -49,7 +51,7 @@ class ResetPasswordController extends Controller {
                 ->route('login')
                 ->with([
                     'alert_type' => 'success',
-                    'alert_message' => 'If you registered with that address, we\'ve sent you an e-mail'
+                    'alert_message' => __('messages.reset_password')
                 ]);
         } else if ($request->has('token') && $request->has('password') && !$request->has('email')) {
             $token = $request->input('token');
@@ -70,7 +72,7 @@ class ResetPasswordController extends Controller {
                 ->route('login')
                 ->with([
                     'alert_type' => 'success',
-                    'alert_message' => 'You\'ve successfully changed your password'
+                    'alert_message' => __('messages.reset_password_success')
                 ]);
         }
 

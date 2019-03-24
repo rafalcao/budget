@@ -1,23 +1,27 @@
 <?php
 
 return [
+    'dashboard' => 'Dashboard',
+    'balance' => 'Balanço',
     'spaces' => 'Espaços',
     'space' => 'Espaço',
-
-    'tags' => 'Etiquetas',
-    'tag' => 'Etiqueta',
-
+    'tags' => 'Categorias',
+    'tag' => 'Categoria',
     'recurrings' => 'Recorrências',
     'recurring' => 'Recorrência',
-
-    'earnings' => 'Ganhos',
-    'earning' => 'Ganho',
-
-    'spendings' => 'Gastos',
-    'spending' => 'Gasto',
-
+    'earnings' => 'Receitas',
+    'earning' => 'Receita',
+    'spendings' => 'Despesas',
+    'spending' => 'Despesa',
     'imports' => 'Importações',
     'import' => 'Importar',
-
-    'reports' => 'Relatórios'
+    'reports' => 'Relatórios',
+    'budget'  => 'Orçamento',
+    'budget'  => 'Orçamento',
+    'variable' => 'Variáveis',
+    'preferences' => 'Preferências',
+    'releases' => 'Lançamentos',
+    'debts' => 'Dívidas',
+    'investments', 'Investimentos',
+    'cards' => 'Meus Cartões'
 ];

@@ -3,7 +3,7 @@
 return [
     'name' => 'Nome',
 
-    'avatar' => 'Avatar',
+    'avatar' => 'Foto',
     'email' => 'E-mail',
     'password' => 'Senha',
     'language' => 'Idioma',

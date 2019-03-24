@@ -19,6 +19,13 @@ Route::group(['middleware' => ['guest']], function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', 'DashboardController')->name('dashboard');
 
+    Route::get('/balance', 'BalanceController')->name('balance');
+    Route::get('/releases', 'ReleasesController')->name('releases');
+    Route::get('/debts', 'DebtsController')->name('debts');
+    Route::get('/variable', 'VariableController')->name('variable');
+    Route::get('/investments', 'InvestmentsController')->name('investments');
+    Route::get('/budget', 'BudgetController')->name('budget');
+
     Route::name('earnings.')->group(function () {
         Route::get('/earnings', 'EarningController@index')->name('index');
         Route::get('/earnings/create', 'EarningController@create')->name('create');
@@ -27,6 +34,16 @@ Route::group(['middleware' => ['auth']], function () {
         Route::patch('/earnings/{earning}', 'EarningController@update');
         Route::delete('/earnings/{earning}', 'EarningController@destroy');
         Route::post('/earnings/{id}/restore', 'EarningController@restore');
+    });
+
+    Route::name('credit_cards.')->group(function () {
+        Route::get('/credit_cards', 'CreditCardsController@index')->name('index');
+        Route::get('/credit_cards/create', 'CreditCardsController@create')->name('create');
+        Route::post('/credit_cards', 'CreditCardsController@store');
+        Route::get('/credit_cards/{earning}/edit', 'CreditCardsController@edit')->name('edit');
+        Route::patch('/credit_cards/{earning}', 'CreditCardsController@update');
+        Route::delete('/credit_cards/{earning}', 'CreditCardsController@destroy');
+        Route::post('/credit_cards/{id}/restore', 'CreditCardsController@restore');
     });
 
     Route::name('spendings.')->group(function () {

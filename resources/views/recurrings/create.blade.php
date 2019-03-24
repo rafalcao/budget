@@ -11,22 +11,22 @@
                 <div class="box__section row">
                     <div class="row__column">
                         <div class="input input--small">
-                            <label>Day</label>
+                            <label>{{ __('general.day') }}</label>
                             <input type="text" name="day" />
                             <div style="font-weight: 700; font-size: 14px; margin-top: 5px;">1 - 28</div>
                             @include('partials.validation_error', ['payload' => 'day'])
                         </div>
                         <div class="input input--small mb-0">
-                            <label>End</label>
+                            <label>{{ __('general.end_date') }}</label>
                             <DatePicker name="end"></DatePicker>
                             @include('partials.validation_error', ['payload' => 'end'])
                             <input type="checkbox" name="end" value="" id="endForever" />
-                            <label for="endForever">Forever</label>
+                            <label for="endForever">{{ __('general.forever') }}</label>
                         </div>
                     </div>
                     <div class="row__column">
                         <div class="input input--small">
-                            <label>Tag</label>
+                            <label>{{ __('models.tag') }}</label>
                             <select name="tag">
                                 <option value="">-</option>
                                 @foreach ($tags as $tag)
@@ -36,7 +36,7 @@
                             @include('partials.validation_error', ['payload' => 'tag'])
                         </div>
                         <div class="input input--small">
-                            <label>Description</label>
+                            <label>{{ __('general.description') }}</label>
                             <input type="text" name="description" />
                             @include('partials.validation_error', ['payload' => 'description'])
                         </div>

@@ -90,7 +90,7 @@ class RegisterController extends Controller
     {
         // Space
         $space = new Space;
-        $space->name = $name . '\'s Space';
+        $space->name = "Espaço do " . $name;
         $space->save();
 
         return $space;

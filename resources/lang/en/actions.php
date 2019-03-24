@@ -10,5 +10,6 @@ return [
     'verify' => 'Verify',
 
     'yes' => 'Yes',
-    'no' => 'No'
+    'no' => 'No',
+    'register' => 'Register'
 ];

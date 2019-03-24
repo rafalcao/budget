@@ -20,6 +20,11 @@ class IdeaController extends Controller {
             'body' => $request->body
         ]);
 
-        return redirect()->route('ideas.create');
+        return redirect()
+            ->route('ideas.create')
+            ->with([
+            'alert_type' => 'success',
+            'alert_message' => __('messages.suggest_success')
+        ]);;;
     }
 }
