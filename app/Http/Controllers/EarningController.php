@@ -38,7 +38,11 @@ class EarningController extends Controller {
 
         $earning = new Earning;
 
-        $earning->space_id = session('space')->id;
+        if(!empty(session('space'))){
+            $space = (array) session('space');
+        }
+
+        $earning->space_id = $space['id'];
         $earning->happened_on = $request->input('date');
         $earning->description = $request->input('description');
         $earning->amount = (int) ($request->input('amount') * 100);

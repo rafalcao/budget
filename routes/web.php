@@ -40,10 +40,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/credit_cards', 'CreditCardsController@index')->name('index');
         Route::get('/credit_cards/create', 'CreditCardsController@create')->name('create');
         Route::post('/credit_cards', 'CreditCardsController@store');
-        Route::get('/credit_cards/{earning}/edit', 'CreditCardsController@edit')->name('edit');
-        Route::patch('/credit_cards/{earning}', 'CreditCardsController@update');
-        Route::delete('/credit_cards/{earning}', 'CreditCardsController@destroy');
-        Route::post('/credit_cards/{id}/restore', 'CreditCardsController@restore');
+        Route::get('/credit_cards/{creditCard}/edit', 'CreditCardsController@edit')->name('edit');
+        Route::patch('/credit_cards/{creditCard}', 'CreditCardsController@update');
+        Route::delete('/credit_cards/{creditCard}', 'CreditCardsController@destroy');
+        Route::post('/credit_cards/{creditCard}/restore', 'CreditCardsController@restore');
     });
 
     Route::name('spendings.')->group(function () {

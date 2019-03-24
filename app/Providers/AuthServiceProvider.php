@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Earning;
 use App\Import;
+use App\CreditCards;
+use App\Policies\CreditCardsPolicy;
 use App\Policies\EarningPolicy;
 use App\Policies\ImportPolicy;
 use App\Policies\SpendingPolicy;
@@ -28,7 +30,8 @@ class AuthServiceProvider extends ServiceProvider
         Spending::class => SpendingPolicy::class,
         Recurring::class => RecurringPolicy::class,
         Tag::class => TagPolicy::class,
-        Import::class => ImportPolicy::class
+        Import::class => ImportPolicy::class,
+        CreditCards::class => CreditCardsPolicy::class
     ];
 
     /**
